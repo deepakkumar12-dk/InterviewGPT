@@ -1,0 +1,137 @@
+.hero{
+    position: relative;
+    overflow: hidden;
+}
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px;
+    min-height:85vh;
+    background:#0b1120;
+}
+
+.hero-left{
+    width:55%;
+}
+
+.tag{
+    color:#7c3aed;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.hero h1{
+    font-size:60px;
+    line-height:1.2;
+    color:white;
+}
+
+.hero span{
+    color:#7c3aed;
+}
+
+.description{
+    margin:25px 0;
+    color:#bdbdbd;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.primary-btn{
+    background:#7c3aed;
+    color:white;
+    border:none;
+    padding:15px 28px;
+    border-radius:10px;
+}
+
+.secondary-btn{
+    background:transparent;
+    color:white;
+    border:1px solid #555;
+    padding:15px 28px;
+    border-radius:10px;
+}
+
+.hero-right{
+    width:40%;
+    display:flex;
+    justify-content:center;
+}
+
+.card{
+    width:300px;
+    padding:35px;
+    background:#111827;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(124,58,237,.25);
+}
+
+.card h2{
+    font-size:55px;
+    color:#7c3aed;
+    margin:20px 0;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#7c3aed;
+    filter:blur(180px);
+    opacity:.18;
+    top:-150px;
+    left:-100px;
+    z-index:0;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#2563eb;
+    filter:blur(180px);
+    opacity:.15;
+    bottom:-120px;
+    right:-120px;
+    z-index:0;
+}
+
+.hero-left,
+.hero-right{
+    position:relative;
+    z-index:2;
+}
+
+.card{
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 0 45px rgba(124,58,237,.45);
+}
+
+.primary-btn,
+.secondary-btn{
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.secondary-btn:hover{
+    background:white;
+    color:#111827;
+}
