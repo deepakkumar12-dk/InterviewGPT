@@ -8,9 +8,9 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from services.gemini_service import analyze_resume
 from resume_parser import extract_text_from_pdf
-from config import GEMINI_API_KEY
 
-print("Loaded API Key:", GEMINI_API_KEY[:10], "...")
+
+
 
 app = FastAPI(title="InterviewGPT API")
 
