@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import VoiceRecorder from "../components/Interview/VoiceRecorder";
 import { useResume } from "../context/ResumeContext";
+import api from "../services/api";
 
 function InterviewPage() {
   const { analysis } = useResume();
@@ -84,21 +85,10 @@ function InterviewPage() {
     }
 
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/evaluate-interview",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            questions,
-            answers: finalAnswers,
-          }),
-        }
-      );
-
-      const data = await response.json();
+      const { data } = await api.post("/evaluate-interview", {
+        questions,
+        answers: finalAnswers,
+      });
 
       if (data.success) {
         localStorage.setItem(
@@ -111,7 +101,12 @@ function InterviewPage() {
         alert("Interview evaluation failed.");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Interview Error:", error);
+
+      if (error.response) {
+        console.log("Backend Response:", error.response.data);
+      }
+
       alert("Server Error");
     }
   };
